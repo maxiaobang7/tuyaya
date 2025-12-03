@@ -1,0 +1,5 @@
+{
+  "name": "TuYaYa",
+  "description": "A privacy-first, client-side batch image compression tool. Compresses images locally without server uploads.",
+  "requestFramePermissions": []
+}
