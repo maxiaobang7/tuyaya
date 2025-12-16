@@ -189,8 +189,7 @@ const GifCropper: React.FC<GifCropperProps> = ({ lang }) => {
       // Fetch worker script code
       let workerUrl;
       try {
-        // Changed to Baomitu CDN for better performance in China
-        const workerBlob = await fetch('https://lib.baomitu.com/gif.js/0.2.0/gif.worker.js')
+        const workerBlob = await fetch('https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js')
             .then(r => {
                 if (!r.ok) throw new Error("Network error fetching worker");
                 return r.blob();
