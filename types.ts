@@ -24,4 +24,4 @@ export interface DragState {
 
 export type Language = 'zh' | 'en';
 
-export type AppMode = 'compress' | 'crop' | 'gif-crop';
+export type AppMode = 'compress' | 'crop' | 'gif-crop' | 'wp-upload';

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Language, AppMode } from './types';
 import { translations } from './utils';
-import { Zap, Compass, Globe, MapPin, Crop, Image as ImageIcon, Film } from 'lucide-react';
+import { Zap, Compass, Globe, MapPin, Crop, Image as ImageIcon, Film, Layout } from 'lucide-react';
 import Compressor from './components/Compressor';
 import Cropper from './components/Cropper';
 import GifCropper from './components/GifCropper';
+import WPPluginInfo from './components/WPPluginInfo';
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('zh');
@@ -65,6 +66,17 @@ const App: React.FC = () => {
             >
               <Film size={16} />
               {t.modeGifCrop}
+            </button>
+            <button
+              onClick={() => setMode('wp-upload')}
+              className={`flex items-center gap-2 px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
+                mode === 'wp-upload' 
+                  ? 'bg-white text-primary-600 shadow-sm' 
+                  : 'text-slate-500 hover:text-slate-700'
+              }`}
+            >
+              <Layout size={16} />
+              {t.modeWpUpload}
             </button>
           </nav>
 
@@ -135,6 +147,17 @@ const App: React.FC = () => {
               <Film size={16} />
               {t.modeGifCrop}
             </button>
+             <button
+              onClick={() => setMode('wp-upload')}
+              className={`flex-1 flex justify-center items-center gap-2 py-3 text-sm font-medium border-b-2 transition-colors ${
+                mode === 'wp-upload' 
+                  ? 'border-primary-600 text-primary-600 bg-primary-50/50' 
+                  : 'border-transparent text-slate-500'
+              }`}
+            >
+              <Layout size={16} />
+              {t.modeWpUpload}
+            </button>
         </div>
       </header>
 
@@ -142,6 +165,7 @@ const App: React.FC = () => {
         {mode === 'compress' && <Compressor lang={lang} />}
         {mode === 'crop' && <Cropper lang={lang} />}
         {mode === 'gif-crop' && <GifCropper lang={lang} />}
+        {mode === 'wp-upload' && <WPPluginInfo lang={lang} />}
       </main>
       
       <footer className="text-center text-slate-400 py-8 text-sm">
